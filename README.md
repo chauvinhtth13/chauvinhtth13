@@ -1,4 +1,4 @@
-# 👋 Hello, I'm [Your Name]!
+# 👋 Hello, I'm Vinh Chau!
 
 Welcome to my GitHub profile! I'm a clinical statistician, data scientist, and research enthusiast passionate about data analysis, software development, molecular epidemiology, and public health research. Here's a snapshot of who I am:
 
