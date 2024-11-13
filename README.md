@@ -44,7 +44,7 @@ My unwavering dedication to advancing knowledge at the intersection of computer 
 </p>
 
 ## 📫 Get in Touch
-
+- **Resume**: [https://chauvinhtth13.github.io/chauvinhtth13/resume.pdf]
 - **LinkedIn**: [https://www.linkedin.com/in/vinhchau-4bb06b85/]
 - **Email**: [chauvinhtth13@gmail.com]
 - **ORICD**: [https://orcid.org/0000-0001-6634-7267]
