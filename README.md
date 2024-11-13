@@ -36,8 +36,16 @@ I am deeply committed to exploring the intersection of computer science, public 
 
 My unwavering dedication to advancing knowledge at the intersection of computer science, public health, and epidemiology enables me to contribute significantly to research and innovative solutions in these fields.
 
+## Badges
+
+<p style="text-align: center;">
+  <img src="https://github-readme-stats.vercel.app/api?username=chauvinhtth13&show_icons=true&locale=en" alt="chauvinhtth13" style="height: 140px;" />
+  &nbsp;&nbsp;
+</p>
+
 ## 📫 Get in Touch
 
+- **Curriculum Vitae"": [https://github.com/chauvinhtth13/chauvinhtth13/blob/main/CV%20-%20Vinh%20Chau%20-%2013Sep2023.pdf]
 - **LinkedIn**: [https://www.linkedin.com/in/vinhchau-4bb06b85/]
 - **Email**: [chauvinhtth13@gmail.com]
 - **ORICD**: [https://orcid.org/0000-0001-6634-7267]
