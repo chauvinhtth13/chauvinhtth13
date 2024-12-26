@@ -6,11 +6,16 @@ Welcome to my GitHub profile! I'm a clinical statistician, data scientist, and r
 
 I'm currently a clinical statistician and data scientist, leveraging my expertise to advance computer science, public health, and epidemiology research. With my background as a Research Assistant at the Oxford University Clinical Research Unit in Ho Chi Minh City, I've:
 
-- Managed research data quality.
-- Developed and executed statistical analysis plans.
-- Contributed to the design and execution of research proposals.
-- Supervised students in advanced R programming for clinical statistics.
-- Created applications and AI tools to support research studies.
+-	Maintain and update databases relevant to the research project
+-	Ensured the quality and accuracy of research data.
+-	Designed and executed data management plans to support research studies.
+-	Developed and implemented statistical analysis plans for studies.
+-	Develop and implement machine learning methods to analyze research data
+-	Collaborated with data management teams to resolve data-related issues.
+-	Develop and update data analysis Power BI Dashboard and Shiny data visualization and analysis applications.
+-	Contributed to presentations, grant writing, and research papers.
+-	Supervised students in advanced R programming and clinical statistics.
+-	Provided technical expertise and support for computer-related aspects of research projects..
 
 ## 🎓 Education & Skills
 
