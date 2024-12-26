@@ -33,10 +33,6 @@ I'm currently a clinical statistician and data scientist, leveraging my expertis
 
 I am deeply committed to exploring the intersection of computer science, public health, epidemiology, and AI for healthcare. My work focuses on developing innovative solutions that integrate advanced computational techniques to tackle healthcare challenges, enhance public health initiatives, and support epidemiological studies.
 
-### Current Projects
-- **Real-Time Surveillance**: Building systems to support antimicrobial resistance monitoring.
-- **Educational Games**: Developing interactive games for secondary school students to promote responsible antibiotic use.
-
 ## 🌱 Future Goals
 
 My unwavering dedication to advancing knowledge at the intersection of computer science, public health, and epidemiology enables me to contribute significantly to research and innovative solutions in these fields.
