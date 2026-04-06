@@ -1,19 +1,320 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Vinh Chau</title>
-    <style type="text/css">
-        *{
-            border:0;
-            margin:0;
-        }
-    </style>
+    <title>Vinh Chau | Researcher & Engineer</title>
+    
+    <!-- Google Fonts: Lora (Serif for headings) and Inter (Sans-serif for data/clean text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div style="height: 100vh;">
-        <iframe src="https://chauvinhtth13.github.io/chauvinhtth13/resume.pdf" width="100%" height="100%"></iframe>
-    </div>
+
+    <!-- Academic Navigation -->
+    <header class="academic-header">
+        <nav class="nav-container">
+            <div class="logo">V. Chau</div>
+            <ul class="nav-links">
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#experience">Appointments</a></li>
+                <li><a href="#projects">Research & Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Oxford Blue with Canvas Network) -->
+    <section class="hero-section" id="hero">
+        <canvas id="networkCanvas"></canvas>
+        <div class="hero-content container">
+            <div class="hero-text-box">
+                <p class="hero-subtitle">MSc, BSc.</p>
+                <h1 class="hero-title">Vinh<br>Chau</h1>
+                <h2 class="hero-roles">Clinical Statistician / Data Scientist<br>Full-Stack AI Engineer</h2>
+                <p class="hero-abstract">
+                    Bridging computer science, public health, and molecular epidemiology. Specializing in advanced predictive machine learning models, real-time edge computing for medical devices, and robust data pipelines for clinical applications.
+                </p>
+                <div class="hero-actions">
+                    <a href="resume.pdf" class="btn btn-primary" target="_blank">Curriculum Vitae (PDF)</a>
+                    <a href="mailto:chauvinhtth13@hotmail.com" class="btn btn-outline">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Quick access links mimicking academic journal sidebars -->
+            <div class="hero-sidebar">
+                <p class="sidebar-title">Connect</p>
+                <a href="https://scholar.google.com/citations?User=8DSaPmwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://orcid.org/0000-0001-6634-7267" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+                <a href="https://github.com/chauvinhtth13" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/chauvinhtth13" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area (Ivory/White) -->
+    <main class="page-content">
+        
+        <!-- About / Research Profile -->
+        <section id="about" class="section container">
+            <div class="section-heading">
+                <h2>I. Research Profile</h2>
+                <div class="heading-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="dropcap">A</p>
+                    <p>s a mathematician and computer scientist with a master’s in computer science and mathematics, I am grounded in the principles of computational theory and data science. My expertise involves applying advanced computational methods to complex health questions.</p>
+                    <p>I focus on building robust clinical data pipelines, ensuring strict data quality, and leveraging Artificial Intelligence (AI) and machine learning models for predictive clinical analysis. My motivation lies in advancing the intersection of computer science, public health, and epidemiology by developing AI-assisted diagnostic models for healthcare in resource-limited settings.</p>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Academic Background</h3>
+                    <div class="edu-item">
+                        <span class="edu-year">2017 – 2019</span>
+                        <h4>Master of Science, Computer Science</h4>
+                        <p class="institution">Vietnam National University - Ho Chi Minh City</p>
+                        <p class="thesis"><i>Thesis: Feature selection methods for efficient Rotavirus diagnosis</i></p>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2013 – 2017</span>
+                        <h4>Bachelor of Science, Mathematics & Computer Science</h4>
+                        <p class="institution">Vietnam National University - Ho Chi Minh City</p>
+                        <p class="thesis"><i>Thesis: A deep learning approach for predicting protein binding sites</i></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments / Experience -->
+        <section id="experience" class="section container bg-slate">
+            <div class="section-heading">
+                <h2>II. Professional Appointments</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="experience-list">
+                
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-dates">04/2025 – Present</span>
+                        <span class="exp-location">Ho Chi Minh City, VN</span>
+                    </div>
+                    <div class="exp-details">
+                        <h3>Research Assistant, Emerging Infections (Innovation Team)</h3>
+                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
+                        <ul>
+                            <li>Develop and deploy real-time models for vital sign extraction from ICU Bedside Monitors.</li>
+                            <li>Fine-tune Transformer architectures to accurately extract data from Case Report Forms.</li>
+                            <li>Analyse and classify ECG data using advanced signal processing and time-series methods.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-dates">01/2022 – Present</span>
+                        <span class="exp-location">Ho Chi Minh City, VN</span>
+                    </div>
+                    <div class="exp-details">
+                        <h3>Research Assistant, Molecular Epidemiology Group</h3>
+                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
+                        <ul>
+                            <li>Architected data management plans for research databases, ensuring data integrity.</li>
+                            <li>Engineered automated workflows for data quality and accuracy validation.</li>
+                            <li>Developed and implemented statistical analysis protocols for clinical research initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item reveal">
+                    <div class="exp-meta">
+                        <span class="exp-dates">10/2017 – 12/2022</span>
+                        <span class="exp-location">Ho Chi Minh City, VN</span>
+                    </div>
+                    <div class="exp-details">
+                        <h3>Data Coordinator, Enteric Infection Group</h3>
+                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
+                        <ul>
+                            <li>Led clinical research projects, managing data pipelines, quality control, and analysis.</li>
+                            <li>Automated data validation and monitoring to uphold rigorous research integrity and compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Competencies -->
+        <section id="skills" class="section container">
+            <div class="section-heading center">
+                <h2>III. Methodological & Technical Competencies</h2>
+                <div class="heading-line center-line"></div>
+            </div>
+
+            <div class="competency-grid">
+                <div class="comp-box reveal">
+                    <h4><i class="fas fa-terminal"></i> Programming Languages</h4>
+                    <p><strong>Expert:</strong> Python, R</p>
+                    <p><strong>Proficient:</strong> C/C++, Flutter, Java, Kotlin</p>
+                </div>
+                <div class="comp-box reveal">
+                    <h4><i class="fas fa-chart-bar"></i> Data Analysis & ML</h4>
+                    <p>Signal Processing (ECG), Time-series methods, Transformer Architectures</p>
+                    <p>Orange, SPSS, Power BI, Looker Studio</p>
+                </div>
+                <div class="comp-box reveal">
+                    <h4><i class="fas fa-database"></i> Database Management</h4>
+                    <p>SQL Server, PostgreSQL, MySQL</p>
+                    <p>Microsoft Access, Automated Workflows</p>
+                </div>
+                <div class="comp-box reveal">
+                    <h4><i class="fas fa-server"></i> Cloud Infrastructure</h4>
+                    <p>Amazon Web Services (AWS), Google Cloud Platform (GCP)</p>
+                    <p>Microsoft Azure, Docker Environments</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects -->
+        <section id="projects" class="section container">
+            <div class="section-heading">
+                <h2>IV. Selected Software & Research Systems</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="project-grid">
+                
+                <div class="project-card reveal">
+                    <div class="proj-header">
+                        <h3>Real-time Medical Device Data Acquisition</h3>
+                        <span class="proj-role">Principal Investigator (2025 - Present)</span>
+                    </div>
+                    <p class="proj-desc">
+                        Edge computing application capturing high-frequency data in real-time natively from medical device display screens. Operates exclusively on-site without remote servers, guaranteeing total data privacy, compliance, and interoperability with existing EHR frameworks.
+                    </p>
+                    <div class="proj-tags">
+                        <span>Vital Signs Extractions</span> <span>Transformer Models</span> <span>Edge AI</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="proj-header">
+                        <h3>ResSync (Research Data Management Platform)</h3>
+                        <span class="proj-role">Leader Developer (2025 - Present)</span>
+                    </div>
+                    <p class="proj-desc">
+                        A highly secure, centralized Django platform designed to streamline academic research workflows from collection to analysis. It leverages an automated data pipeline and real-time visualization dashboards to instantly derive clinical insights.
+                    </p>
+                    <div class="proj-tags">
+                        <span>Python</span> <span>Django Framework</span> <span>Data Pipelines</span>
+                    </div>
+                    <a href="https://github.com/chauvinhtth13/ResSync" class="proj-link" target="_blank">View Repository &rarr;</a>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="proj-header">
+                        <h3>AMRalyze Dashboard</h3>
+                        <span class="proj-role">Leader Developer (2024 - Present)</span>
+                    </div>
+                    <p class="proj-desc">
+                        An interactive R/Shiny application tailored for the end-to-end analysis of Antimicrobial Resistance (AMR) data. Features a flexible ingestion module mapping data against rigorous CLSI/EUCAST global clinical guidelines.
+                    </p>
+                    <div class="proj-tags">
+                        <span>R/Shiny</span> <span>AMR Data Processing</span> <span>Clinical Statistics</span>
+                    </div>
+                    <a href="https://github.com/chauvinhtth13/AMRalyze" class="proj-link" target="_blank">View Repository &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Publications & Awards -->
+        <section id="publications" class="section container bg-slate">
+            <div class="section-heading">
+                <h2>V. Selected Publications & Peer-Reviewed Work</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="academic-lists">
+                <!-- Journal Articles -->
+                <div class="citations-container reveal">
+                    <h3>Journal Articles (Selection)</h3>
+                    <ol class="citation-list">
+                        <li>
+                            <p><strong>Chau, V.</strong>, Dung, T. T. N., Anh, P. H., et al. (2025). The bacterial etiology and antimicrobial susceptibility of lower respiratory tract infections in Vietnam. <i>Annals of Clinical Microbiology and Antimicrobials</i>. <a href="https://doi.org/10.1186/s12941-025-00818-3" target="_blank">https://doi.org/10.1186/s12941-025-00818-3</a></p>
+                        </li>
+                        <li>
+                            <p>Nguyen, H. T. T., <strong>Chau, V.</strong>, Nguyen, P. H. L., et al. (2024). Changing epidemiology and antimicrobial susceptibility of bloodstream infections at a Vietnamese infectious diseases hospital. <i>Npj Antimicrobials and Resistance</i>. <a href="https://doi.org/10.1038/s44259-024-00049-0" target="_blank">https://doi.org/10.1038/s44259-024-00049-0</a></p>
+                        </li>
+                        <li>
+                            <p><strong>Chau, V.</strong>, Thi Ngoc, D. T., My, P. T., et al. (2023). Feature Selection Methods for Effective Diagnosis of Rotavirus Infection: A Comparative Evaluation. <i>15th International Conference on Knowledge and Systems Engineering (KSE)</i>. <a href="https://doi.org/10.1109/KSE59128.2023.10299472" target="_blank">https://doi.org/10.1109/KSE59128.2023.10299472</a></p>
+                        </li>
+                        <li>
+                            <p>Nguyen, Q., <strong>Chau, V.</strong>, et al. (2024). Genomic insights unveil the plasmid transfer mechanism and epidemiology of hypervirulent Klebsiella pneumoniae in Vietnam. <i>Nature Communications</i>. <a href="https://doi.org/10.1038/s41467-024-48206-3" target="_blank">https://doi.org/10.1038/s41467-024-48206-3</a></p>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Awards and Grants -->
+                <div class="awards-container reveal">
+                    <h3>Research Funding & Honours</h3>
+                    <ul class="award-list">
+                        <li>
+                            <span class="award-year">2025</span>
+                            <div class="award-content">
+                                <strong>OUCRU Programme Scientific Committee Research Funding ($26,295)</strong>
+                                <span>Principal Investigator: Real-time high-frequency data acquisition from medical devices</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="award-year">2021</span>
+                            <div class="award-content">
+                                <strong>OUCRU PE Seed Award ($5,500)</strong>
+                                <span>Principal Investigator: Interactive board game for clinical research</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="award-year">2019</span>
+                            <div class="award-content">
+                                <strong>IoT Startup 2019 - First Place ($70,000)</strong>
+                                <span>Co-Founder: OmniGo Ecosystem</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Academic Footer -->
+    <footer class="academic-footer">
+        <div class="container footer-grid">
+            <div>
+                <p><strong>Vinh Chau</strong></p>
+                <p>Clinical Statistician & Data Scientist</p>
+                <p>Oxford University Clinical Research Unit (OUCRU)</p>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Inquiries</strong></p>
+                <a href="mailto:chauvinhtth13@hotmail.com">chauvinhtth13@hotmail.com</a><br>
+                <a href="tel:+84765808290">+84 765 808 290</a>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2026 Vinh Chau. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Network Background Script -->
+    <script src="script.js"></script>
 </body>
 </html>
