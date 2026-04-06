@@ -69,19 +69,6 @@ I am the Lead Developer on several impactful healthcare and data management plat
 - 🦠 [**AMRalyze Dashboard**](https://github.com/chauvinhtth13/AMRalyze): An interactive R/Shiny application for end-to-end analysis of Antimicrobial Resistance (AMR) data mapping against CLSI/EUCAST guidelines.
 
 ---
-
-## 📈 GitHub Analytics
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=chauvinhtth13&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=chauvinhtth13&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=chauvinhtth13&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top Languages" />
-</div>
-
----
 <p align="center">
   <i>Let's connect and build something impactful together.</i>
 </p>
