@@ -1,320 +1,505 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth scroll-pt-20">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinh Chau | Researcher & Engineer</title>
-    
-    <!-- Google Fonts: Lora (Serif for headings) and Inter (Sans-serif for data/clean text) -->
+    <title>Vinh Chau | Data Scientist & AI Engineer</title>
+    <meta name="description" content="Portfolio of Vinh Chau – Clinical Statistician, Data Scientist, and Full-Stack AI Engineer at Oxford University Clinical Research Unit.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for standard icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Academic Navigation -->
-    <header class="academic-header">
-        <nav class="nav-container">
-            <div class="logo">V. Chau</div>
-            <ul class="nav-links">
-                <li><a href="#about">Profile</a></li>
-                <li><a href="#experience">Appointments</a></li>
-                <li><a href="#projects">Research & Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-            </ul>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        oxford: { DEFAULT: '#002147', light: '#003b80', dark: '#00132d' },
+                        gold: { DEFAULT: '#9d8036', light: '#c8a951' },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.active { opacity: 1; transform: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- ========== NAVIGATION ========== -->
+    <header id="main-header" class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-slate-100 transition-all py-4">
+        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            <a href="#" class="font-serif text-oxford font-semibold text-xl tracking-tight">V. Chau</a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium text-slate-500 hover:text-oxford tracking-widest uppercase transition-colors">Profile</a>
+                <a href="#experience" class="text-sm font-medium text-slate-500 hover:text-oxford tracking-widest uppercase transition-colors">Appointments</a>
+                <a href="#skills" class="text-sm font-medium text-slate-500 hover:text-oxford tracking-widest uppercase transition-colors">Skills</a>
+                <a href="#projects" class="text-sm font-medium text-slate-500 hover:text-oxford tracking-widest uppercase transition-colors">Projects</a>
+                <a href="#publications" class="text-sm font-medium text-slate-500 hover:text-oxford tracking-widest uppercase transition-colors">Publications</a>
+                <a href="resume.pdf" target="_blank" class="text-sm font-semibold bg-oxford text-white px-5 py-2 rounded hover:bg-oxford-light transition-colors">CV</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden text-oxford text-xl" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
+                <a href="#about" class="text-sm font-medium text-slate-600 hover:text-oxford py-1">Profile</a>
+                <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-oxford py-1">Appointments</a>
+                <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-oxford py-1">Skills</a>
+                <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-oxford py-1">Projects</a>
+                <a href="#publications" class="text-sm font-medium text-slate-600 hover:text-oxford py-1">Publications</a>
+                <a href="resume.pdf" target="_blank" class="text-sm font-semibold bg-oxford text-white px-4 py-2 rounded text-center mt-1">CV</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section (Oxford Blue with Canvas Network) -->
-    <section class="hero-section" id="hero">
-        <canvas id="networkCanvas"></canvas>
-        <div class="hero-content container">
-            <div class="hero-text-box">
-                <p class="hero-subtitle">MSc, BSc.</p>
-                <h1 class="hero-title">Vinh<br>Chau</h1>
-                <h2 class="hero-roles">Clinical Statistician / Data Scientist<br>Full-Stack AI Engineer</h2>
-                <p class="hero-abstract">
-                    Bridging computer science, public health, and molecular epidemiology. Specializing in advanced predictive machine learning models, real-time edge computing for medical devices, and robust data pipelines for clinical applications.
-                </p>
-                <div class="hero-actions">
-                    <a href="resume.pdf" class="btn btn-primary" target="_blank">Curriculum Vitae (PDF)</a>
-                    <a href="mailto:chauvinhtth13@hotmail.com" class="btn btn-outline">Contact</a>
-                </div>
+    <!-- ========== HERO ========== -->
+    <section id="hero" class="relative bg-oxford min-h-screen flex items-center overflow-hidden">
+        <canvas id="networkCanvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-24">
+            <p class="text-gold font-semibold tracking-widest text-xs uppercase mb-4">Master of Science · Computer Science</p>
+            <h1 class="font-serif text-white text-6xl md:text-7xl font-semibold leading-tight mb-8">Vinh Chau</h1>
+            <p class="text-slate-300 text-xl md:text-2xl font-light leading-relaxed mb-6">
+                Clinical Statistician &amp; Data Scientist · <span class="text-gold/80">Full-Stack AI Engineer</span>
+            </p>
+            <p class="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
+                Bridging computer science, public health, and molecular epidemiology at the Oxford University Clinical Research Unit. Specializing in predictive ML models, edge computing for medical devices, and robust clinical data pipelines.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="resume.pdf" target="_blank"
+                   class="inline-flex items-center gap-2 bg-gold text-white font-medium px-7 py-3 rounded hover:bg-gold-light transition-colors">
+                    <i class="fas fa-file-pdf text-sm"></i> Curriculum Vitae
+                </a>
+                <a href="#contact"
+                   class="inline-flex items-center gap-2 border border-white/25 text-white font-medium px-7 py-3 rounded hover:border-gold hover:text-gold transition-colors">
+                    Contact
+                </a>
             </div>
-            
-            <!-- Quick access links mimicking academic journal sidebars -->
-            <div class="hero-sidebar">
-                <p class="sidebar-title">Connect</p>
-                <a href="https://scholar.google.com/citations?User=8DSaPmwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="https://orcid.org/0000-0001-6634-7267" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
-                <a href="https://github.com/chauvinhtth13" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/chauvinhtth13" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <div class="flex justify-center gap-4">
+                <a href="https://scholar.google.com/citations?user=8DSaPmwAAAAJ" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://orcid.org/0000-0001-6634-7267" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="ORCID"><i class="fab fa-orcid"></i></a>
+                <a href="https://github.com/chauvinhtth13" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/chauvinhtth13" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://researchgate.net/profile/Chau-Vinh-3" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                <a href="mailto:chauvinhtth13@hotmail.com" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-gold/20 hover:text-gold transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Area (Ivory/White) -->
-    <main class="page-content">
-        
-        <!-- About / Research Profile -->
-        <section id="about" class="section container">
-            <div class="section-heading">
-                <h2>I. Research Profile</h2>
-                <div class="heading-line"></div>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="dropcap">A</p>
-                    <p>s a mathematician and computer scientist with a master’s in computer science and mathematics, I am grounded in the principles of computational theory and data science. My expertise involves applying advanced computational methods to complex health questions.</p>
-                    <p>I focus on building robust clinical data pipelines, ensuring strict data quality, and leveraging Artificial Intelligence (AI) and machine learning models for predictive clinical analysis. My motivation lies in advancing the intersection of computer science, public health, and epidemiology by developing AI-assisted diagnostic models for healthcare in resource-limited settings.</p>
-                </div>
-                
-                <div class="education-card">
-                    <h3>Academic Background</h3>
-                    <div class="edu-item">
-                        <span class="edu-year">2017 – 2019</span>
-                        <h4>Master of Science, Computer Science</h4>
-                        <p class="institution">Vietnam National University - Ho Chi Minh City</p>
-                        <p class="thesis"><i>Thesis: Feature selection methods for efficient Rotavirus diagnosis</i></p>
-                    </div>
-                    <div class="edu-item">
-                        <span class="edu-year">2013 – 2017</span>
-                        <h4>Bachelor of Science, Mathematics & Computer Science</h4>
-                        <p class="institution">Vietnam National University - Ho Chi Minh City</p>
-                        <p class="thesis"><i>Thesis: A deep learning approach for predicting protein binding sites</i></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-serif text-oxford text-3xl md:text-4xl mb-14">
+                I. Research Profile
+                <div class="w-12 h-0.5 bg-gold mt-4"></div>
+            </h2>
+            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
-        <!-- Appointments / Experience -->
-        <section id="experience" class="section container bg-slate">
-            <div class="section-heading">
-                <h2>II. Professional Appointments</h2>
-                <div class="heading-line"></div>
-            </div>
-
-            <div class="experience-list">
-                
-                <div class="experience-item reveal">
-                    <div class="exp-meta">
-                        <span class="exp-dates">04/2025 – Present</span>
-                        <span class="exp-location">Ho Chi Minh City, VN</span>
-                    </div>
-                    <div class="exp-details">
-                        <h3>Research Assistant, Emerging Infections (Innovation Team)</h3>
-                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
-                        <ul>
-                            <li>Develop and deploy real-time models for vital sign extraction from ICU Bedside Monitors.</li>
-                            <li>Fine-tune Transformer architectures to accurately extract data from Case Report Forms.</li>
-                            <li>Analyse and classify ECG data using advanced signal processing and time-series methods.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item reveal">
-                    <div class="exp-meta">
-                        <span class="exp-dates">01/2022 – Present</span>
-                        <span class="exp-location">Ho Chi Minh City, VN</span>
-                    </div>
-                    <div class="exp-details">
-                        <h3>Research Assistant, Molecular Epidemiology Group</h3>
-                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
-                        <ul>
-                            <li>Architected data management plans for research databases, ensuring data integrity.</li>
-                            <li>Engineered automated workflows for data quality and accuracy validation.</li>
-                            <li>Developed and implemented statistical analysis protocols for clinical research initiatives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-item reveal">
-                    <div class="exp-meta">
-                        <span class="exp-dates">10/2017 – 12/2022</span>
-                        <span class="exp-location">Ho Chi Minh City, VN</span>
-                    </div>
-                    <div class="exp-details">
-                        <h3>Data Coordinator, Enteric Infection Group</h3>
-                        <h4 class="org">Oxford University Clinical Research Unit (OUCRU)</h4>
-                        <ul>
-                            <li>Led clinical research projects, managing data pipelines, quality control, and analysis.</li>
-                            <li>Automated data validation and monitoring to uphold rigorous research integrity and compliance.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Technical Competencies -->
-        <section id="skills" class="section container">
-            <div class="section-heading center">
-                <h2>III. Methodological & Technical Competencies</h2>
-                <div class="heading-line center-line"></div>
-            </div>
-
-            <div class="competency-grid">
-                <div class="comp-box reveal">
-                    <h4><i class="fas fa-terminal"></i> Programming Languages</h4>
-                    <p><strong>Expert:</strong> Python, R</p>
-                    <p><strong>Proficient:</strong> C/C++, Flutter, Java, Kotlin</p>
-                </div>
-                <div class="comp-box reveal">
-                    <h4><i class="fas fa-chart-bar"></i> Data Analysis & ML</h4>
-                    <p>Signal Processing (ECG), Time-series methods, Transformer Architectures</p>
-                    <p>Orange, SPSS, Power BI, Looker Studio</p>
-                </div>
-                <div class="comp-box reveal">
-                    <h4><i class="fas fa-database"></i> Database Management</h4>
-                    <p>SQL Server, PostgreSQL, MySQL</p>
-                    <p>Microsoft Access, Automated Workflows</p>
-                </div>
-                <div class="comp-box reveal">
-                    <h4><i class="fas fa-server"></i> Cloud Infrastructure</h4>
-                    <p>Amazon Web Services (AWS), Google Cloud Platform (GCP)</p>
-                    <p>Microsoft Azure, Docker Environments</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Selected Projects -->
-        <section id="projects" class="section container">
-            <div class="section-heading">
-                <h2>IV. Selected Software & Research Systems</h2>
-                <div class="heading-line"></div>
-            </div>
-
-            <div class="project-grid">
-                
-                <div class="project-card reveal">
-                    <div class="proj-header">
-                        <h3>Real-time Medical Device Data Acquisition</h3>
-                        <span class="proj-role">Principal Investigator (2025 - Present)</span>
-                    </div>
-                    <p class="proj-desc">
-                        Edge computing application capturing high-frequency data in real-time natively from medical device display screens. Operates exclusively on-site without remote servers, guaranteeing total data privacy, compliance, and interoperability with existing EHR frameworks.
+                <!-- Research text -->
+                <div class="lg:col-span-3 reveal">
+                    <h3 class="text-2xl font-serif text-oxford mb-6 leading-snug">
+                        Bridging computational theory with <span class="text-gold italic">clinical data science</span> to advance public health.
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-6 text-justify">
+                        As a mathematician and computer scientist, I apply advanced computational methods and AI to complex health questions. My focus lies in developing predictive clinical models, constructing robust data pipelines, and implementing edge-computing architectures in resource-limited healthcare settings.
                     </p>
-                    <div class="proj-tags">
-                        <span>Vital Signs Extractions</span> <span>Transformer Models</span> <span>Edge AI</span>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-8 text-justify">
+                        I am motivated to advance the intersection of computer science, public health, and epidemiology by building AI-assisted diagnostic tools and ensuring uncompromising data quality for clinical research.
+                    </p>
+                    <div class="mt-10 grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-center gap-5 bg-white shadow-sm rounded-xl p-6 border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-full bg-oxford/5 flex items-center justify-center shrink-0">
+                                <i class="fas fa-book-open text-oxford text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-serif text-3xl font-semibold text-oxford mb-0.5">9+</p>
+                                <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Publications</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5 bg-white shadow-sm rounded-xl p-6 border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                                <i class="fas fa-flask text-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-serif text-3xl font-semibold text-oxford mb-0.5">8+</p>
+                                <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Years at OUCRU</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card reveal">
-                    <div class="proj-header">
-                        <h3>ResSync (Research Data Management Platform)</h3>
-                        <span class="proj-role">Leader Developer (2025 - Present)</span>
+                <!-- Education -->
+                <div class="lg:col-span-2 reveal" style="transition-delay: 150ms;">
+                    <div class="bg-oxford rounded-2xl p-8 lg:p-10 text-white h-full shadow-xl shadow-oxford/10 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-8 opacity-5">
+                            <i class="fas fa-graduation-cap text-8xl text-white"></i>
+                        </div>
+                        <h3 class="relative z-10 font-serif text-gold text-2xl mb-8 pb-5 border-b border-white/10">Academic Background</h3>
+                        <div class="relative z-10 space-y-8 border-l-2 border-white/10 ml-2 pl-6 py-1">
+                            <div class="relative">
+                                <div class="absolute left-[-25px] -translate-x-1/2 top-1.5 w-3 h-3 bg-gold rounded-full shadow-[0_0_0_4px_rgba(157,128,54,0.2)]"></div>
+                                <span class="text-gold text-xs font-semibold tracking-widest uppercase mb-1 block">2017 – 2019</span>
+                                <h4 class="font-semibold text-white text-lg leading-snug">MSc in Computer Science</h4>
+                                <p class="text-white/70 text-sm mt-1">VNU – Ho Chi Minh City</p>
+                                <div class="mt-3 bg-white/5 rounded-lg p-3 border border-white/5">
+                                    <p class="text-white/60 text-xs italic leading-relaxed">Thesis: Feature selection methods for efficient Rotavirus diagnosis</p>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-[-25px] -translate-x-1/2 top-1.5 w-3 h-3 bg-gold rounded-full shadow-[0_0_0_4px_rgba(157,128,54,0.2)]"></div>
+                                <span class="text-gold text-xs font-semibold tracking-widest uppercase mb-1 block">2013 – 2017</span>
+                                <h4 class="font-semibold text-white text-lg leading-snug">BSc in Math &amp; Comp Science</h4>
+                                <p class="text-white/70 text-sm mt-1">VNU – Ho Chi Minh City</p>
+                                <div class="mt-3 bg-white/5 rounded-lg p-3 border border-white/5">
+                                    <p class="text-white/60 text-xs italic leading-relaxed">Thesis: Deep learning approach for predicting protein binding sites</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="proj-desc">
-                        A highly secure, centralized Django platform designed to streamline academic research workflows from collection to analysis. It leverages an automated data pipeline and real-time visualization dashboards to instantly derive clinical insights.
-                    </p>
-                    <div class="proj-tags">
-                        <span>Python</span> <span>Django Framework</span> <span>Data Pipelines</span>
-                    </div>
-                    <a href="https://github.com/chauvinhtth13/ResSync" class="proj-link" target="_blank">View Repository &rarr;</a>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="proj-header">
-                        <h3>AMRalyze Dashboard</h3>
-                        <span class="proj-role">Leader Developer (2024 - Present)</span>
-                    </div>
-                    <p class="proj-desc">
-                        An interactive R/Shiny application tailored for the end-to-end analysis of Antimicrobial Resistance (AMR) data. Features a flexible ingestion module mapping data against rigorous CLSI/EUCAST global clinical guidelines.
-                    </p>
-                    <div class="proj-tags">
-                        <span>R/Shiny</span> <span>AMR Data Processing</span> <span>Clinical Statistics</span>
-                    </div>
-                    <a href="https://github.com/chauvinhtth13/AMRalyze" class="proj-link" target="_blank">View Repository &rarr;</a>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Publications & Awards -->
-        <section id="publications" class="section container bg-slate">
-            <div class="section-heading">
-                <h2>V. Selected Publications & Peer-Reviewed Work</h2>
-                <div class="heading-line"></div>
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-serif text-oxford text-3xl md:text-4xl mb-14">
+                II. Professional Appointments
+                <div class="w-12 h-0.5 bg-gold mt-4"></div>
+            </h2>
+            <div class="space-y-1">
+
+                <!-- Job 1 -->
+                <div class="reveal bg-white rounded-lg border border-slate-100 overflow-hidden">
+                    <div class="grid md:grid-cols-4">
+                        <div class="bg-oxford p-8 flex flex-col justify-center">
+                            <span class="text-gold text-xs font-semibold tracking-widest uppercase mb-2">04/2025 – Present</span>
+                            <p class="text-white/60 text-sm">Ho Chi Minh City, VN</p>
+                        </div>
+                        <div class="md:col-span-3 p-8">
+                            <h3 class="font-serif text-oxford text-xl mb-1">Research Assistant</h3>
+                            <p class="text-gold text-sm italic mb-4">Emerging Infections – Innovation Team, Oxford University Clinical Research Unit (OUCRU)</p>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Develop and deploy real-time models for vital sign extraction from ICU Bedside Monitors.</li>
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Fine-tune Transformer architectures to accurately extract data from Case Report Forms.</li>
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Analyse and classify ECG data using advanced signal processing and time-series methods.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="reveal bg-white rounded-lg border border-slate-100 overflow-hidden">
+                    <div class="grid md:grid-cols-4">
+                        <div class="bg-oxford/90 p-8 flex flex-col justify-center">
+                            <span class="text-gold text-xs font-semibold tracking-widest uppercase mb-2">01/2022 – Present</span>
+                            <p class="text-white/60 text-sm">Ho Chi Minh City, VN</p>
+                        </div>
+                        <div class="md:col-span-3 p-8">
+                            <h3 class="font-serif text-oxford text-xl mb-1">Research Assistant</h3>
+                            <p class="text-gold text-sm italic mb-4">Molecular Epidemiology Group, Oxford University Clinical Research Unit (OUCRU)</p>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Architected data management plans for research databases, ensuring data integrity.</li>
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Engineered automated workflows for data quality and accuracy validation.</li>
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Collaborated on data analysis for scientific publications and grant proposals.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="reveal bg-white rounded-lg border border-slate-100 overflow-hidden">
+                    <div class="grid md:grid-cols-4">
+                        <div class="bg-oxford/75 p-8 flex flex-col justify-center">
+                            <span class="text-gold text-xs font-semibold tracking-widest uppercase mb-2">10/2017 – 12/2022</span>
+                            <p class="text-white/60 text-sm">Ho Chi Minh City, VN</p>
+                        </div>
+                        <div class="md:col-span-3 p-8">
+                            <h3 class="font-serif text-oxford text-xl mb-1">Data Coordinator</h3>
+                            <p class="text-gold text-sm italic mb-4">Enteric Infection Group, Oxford University Clinical Research Unit (OUCRU)</p>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Led clinical research projects, managing data pipelines, quality control, and analysis.</li>
+                                <li class="flex gap-2"><span class="text-gold mt-0.5 shrink-0">▪</span>Automated data validation and monitoring to uphold research integrity and compliance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </section>
 
-            <div class="academic-lists">
-                <!-- Journal Articles -->
-                <div class="citations-container reveal">
-                    <h3>Journal Articles (Selection)</h3>
-                    <ol class="citation-list">
-                        <li>
-                            <p><strong>Chau, V.</strong>, Dung, T. T. N., Anh, P. H., et al. (2025). The bacterial etiology and antimicrobial susceptibility of lower respiratory tract infections in Vietnam. <i>Annals of Clinical Microbiology and Antimicrobials</i>. <a href="https://doi.org/10.1186/s12941-025-00818-3" target="_blank">https://doi.org/10.1186/s12941-025-00818-3</a></p>
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-serif text-oxford text-3xl md:text-4xl text-center mb-14">
+                III. Technical Competencies
+                <div class="w-12 h-0.5 bg-gold mt-4 mx-auto"></div>
+            </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="reveal bg-slate-50 rounded-lg p-7 border-t-4 border-oxford hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 flex items-center justify-center bg-oxford/10 rounded mb-4">
+                        <i class="fas fa-terminal text-oxford text-base"></i>
+                    </div>
+                    <h3 class="font-semibold text-oxford text-base mb-3">Development</h3>
+                    <div class="space-y-2 text-sm text-slate-600">
+                        <p><span class="font-semibold text-slate-800">Expert:</span> Python, R</p>
+                        <p><span class="font-semibold text-slate-800">Proficient:</span> C/C++, Flutter, Java, Kotlin, Django</p>
+                    </div>
+                </div>
+
+                <div class="reveal bg-slate-50 rounded-lg p-7 border-t-4 border-gold hover:shadow-md transition-shadow" style="transition-delay:75ms">
+                    <div class="w-10 h-10 flex items-center justify-center bg-gold/10 rounded mb-4">
+                        <i class="fas fa-chart-bar text-gold text-base"></i>
+                    </div>
+                    <h3 class="font-semibold text-oxford text-base mb-3">Data &amp; Machine Learning</h3>
+                    <div class="space-y-2 text-sm text-slate-600">
+                        <p>Transformer Models, Signal Processing, Time-Series</p>
+                        <p>Orange, SPSS, Power BI, Looker Studio, Shiny</p>
+                    </div>
+                </div>
+
+                <div class="reveal bg-slate-50 rounded-lg p-7 border-t-4 border-oxford hover:shadow-md transition-shadow" style="transition-delay:150ms">
+                    <div class="w-10 h-10 flex items-center justify-center bg-oxford/10 rounded mb-4">
+                        <i class="fas fa-database text-oxford text-base"></i>
+                    </div>
+                    <h3 class="font-semibold text-oxford text-base mb-3">Databases</h3>
+                    <div class="space-y-2 text-sm text-slate-600">
+                        <p>PostgreSQL, MySQL, SQL Server</p>
+                        <p>Microsoft Access, Automated Data Workflows</p>
+                    </div>
+                </div>
+
+                <div class="reveal bg-slate-50 rounded-lg p-7 border-t-4 border-gold hover:shadow-md transition-shadow" style="transition-delay:225ms">
+                    <div class="w-10 h-10 flex items-center justify-center bg-gold/10 rounded mb-4">
+                        <i class="fas fa-cloud text-gold text-base"></i>
+                    </div>
+                    <h3 class="font-semibold text-oxford text-base mb-3">Cloud &amp; Infrastructure</h3>
+                    <div class="space-y-2 text-sm text-slate-600">
+                        <p>Amazon Web Services (AWS)</p>
+                        <p>Google Cloud Platform, Microsoft Azure</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-serif text-oxford text-3xl md:text-4xl mb-14">
+                IV. Selected Software &amp; Research Systems
+                <div class="w-12 h-0.5 bg-gold mt-4"></div>
+            </h2>
+            <div class="space-y-6">
+
+                <div class="reveal bg-white rounded-lg border border-slate-100 p-8 hover:border-gold/40 hover:shadow-sm transition-all group">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <h3 class="font-serif text-oxford text-xl group-hover:text-oxford-light transition-colors">Real-time Medical Device Data Acquisition</h3>
+                            <span class="text-gold text-sm italic">Principal Investigator &nbsp;·&nbsp; 11/2025 – Present</span>
+                        </div>
+                        <span class="text-xs font-semibold bg-oxford/10 text-oxford px-3 py-1 rounded-full">Funded · $26,295</span>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                        Edge-computing application capturing high-frequency data in real-time natively from ICU medical device display screens. Operates exclusively on-site to guarantee data privacy, compliance, and interoperability with existing EHR and research database frameworks.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Edge AI</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Vital Signs Extraction</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Transformer Models</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">EHR Interoperability</span>
+                    </div>
+                </div>
+
+                <div class="reveal bg-white rounded-lg border border-slate-100 p-8 hover:border-gold/40 hover:shadow-sm transition-all group">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <h3 class="font-serif text-oxford text-xl group-hover:text-oxford-light transition-colors">ResSync – Research Data Management Platform</h3>
+                            <span class="text-gold text-sm italic">Lead Developer &nbsp;·&nbsp; 01/2025 – Present</span>
+                        </div>
+                        <a href="https://github.com/chauvinhtth13/ResSync" target="_blank"
+                           class="text-xs font-semibold flex items-center gap-1.5 text-slate-500 hover:text-oxford transition-colors">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                        A secure, centralised Django platform engineered to streamline academic research workflows from collection to analysis. Features automated data pipelines and a real-time interactive dashboard for clinical insight visualisation. Implements robust user authentication and data encryption.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Django</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Python</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Data Pipelines</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Real-time Dashboards</span>
+                    </div>
+                </div>
+
+                <div class="reveal bg-white rounded-lg border border-slate-100 p-8 hover:border-gold/40 hover:shadow-sm transition-all group">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                        <div>
+                            <h3 class="font-serif text-oxford text-xl group-hover:text-oxford-light transition-colors">AMRalyze Dashboard</h3>
+                            <span class="text-gold text-sm italic">Lead Developer &nbsp;·&nbsp; 01/2024 – Present</span>
+                        </div>
+                        <a href="https://github.com/chauvinhtth13/AMRalyze" target="_blank"
+                           class="text-xs font-semibold flex items-center gap-1.5 text-slate-500 hover:text-oxford transition-colors">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                        An interactive R/Shiny application for end-to-end analysis of Antimicrobial Resistance (AMR) data. Handles both wide and long format data (CSV/XLSX), interprets results against CLSI/EUCAST clinical guidelines, and calculates MDR status with a flexible data ingestion module.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">R / Shiny</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">Clinical Statistics</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">CLSI / EUCAST</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded">AMR Data</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PUBLICATIONS & AWARDS ========== -->
+    <section id="publications" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-serif text-oxford text-3xl md:text-4xl mb-14">
+                V. Publications &amp; Funding
+                <div class="w-12 h-0.5 bg-gold mt-4"></div>
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-16">
+
+                <!-- Publications -->
+                <div class="reveal">
+                    <h3 class="font-semibold text-oxford text-lg flex items-center gap-2 mb-6 pb-3 border-b border-slate-200">
+                        <i class="fas fa-book-open text-gold text-base"></i> Selected Journal Articles
+                    </h3>
+                    <ol class="space-y-5 list-decimal list-outside pl-5">
+                        <li class="text-slate-700 text-sm leading-relaxed">
+                            Anh, P.H., <strong>Vinh, C.</strong>, Lan, N.P.H. et al. (2026). Secondary infection in severe COVID-19 patients: clinical and microbial patterns at a tertiary hospital in Vietnam. <em>BMC Infect Dis</em> 26, 227.
+                            <a href="https://doi.org/10.1186/s12879-025-12479-w" target="_blank" class="text-gold text-xs block mt-1 hover:underline">doi:10.1186/s12879-025-12479-w</a>
                         </li>
-                        <li>
-                            <p>Nguyen, H. T. T., <strong>Chau, V.</strong>, Nguyen, P. H. L., et al. (2024). Changing epidemiology and antimicrobial susceptibility of bloodstream infections at a Vietnamese infectious diseases hospital. <i>Npj Antimicrobials and Resistance</i>. <a href="https://doi.org/10.1038/s44259-024-00049-0" target="_blank">https://doi.org/10.1038/s44259-024-00049-0</a></p>
+                        <li class="text-slate-700 text-sm leading-relaxed">
+                            <strong>Chau, V.</strong>, Le Dinh Van, K., Huynh Ngoc, H., et al. (2025). A Hierarchical Computer Vision Pipeline for Physiological Data Extraction from Bedside Monitors. <em>arXiv preprint</em>.
+                            <a href="https://arxiv.org/abs/2511.23355" target="_blank" class="text-gold text-xs block mt-1 hover:underline">arXiv:2511.23355</a>
                         </li>
-                        <li>
-                            <p><strong>Chau, V.</strong>, Thi Ngoc, D. T., My, P. T., et al. (2023). Feature Selection Methods for Effective Diagnosis of Rotavirus Infection: A Comparative Evaluation. <i>15th International Conference on Knowledge and Systems Engineering (KSE)</i>. <a href="https://doi.org/10.1109/KSE59128.2023.10299472" target="_blank">https://doi.org/10.1109/KSE59128.2023.10299472</a></p>
+                        <li class="text-slate-700 text-sm leading-relaxed">
+                            Dung, T. T. N., <strong>Vinh, C.</strong>, Anh, P. H., et al. (2025). The bacterial etiology and antimicrobial susceptibility of lower respiratory tract infections in Vietnam. <em>Annals of Clinical Microbiology and Antimicrobials</em>, 24(1), 50.
+                            <a href="https://doi.org/10.1186/s12941-025-00818-3" target="_blank" class="text-gold text-xs block mt-1 hover:underline">doi:10.1186/s12941-025-00818-3</a>
                         </li>
-                        <li>
-                            <p>Nguyen, Q., <strong>Chau, V.</strong>, et al. (2024). Genomic insights unveil the plasmid transfer mechanism and epidemiology of hypervirulent Klebsiella pneumoniae in Vietnam. <i>Nature Communications</i>. <a href="https://doi.org/10.1038/s41467-024-48206-3" target="_blank">https://doi.org/10.1038/s41467-024-48206-3</a></p>
+                        <li class="text-slate-700 text-sm leading-relaxed">
+                            Nguyen, H. T. T., <strong>Chau, V.</strong>, Nguyen, P. H. L., et al. (2024). Changing epidemiology and antimicrobial susceptibility of bloodstream infections at a Vietnamese infectious diseases hospital (2010–2020). <em>Npj Antimicrobials and Resistance</em>, 2(1), 32.
+                            <a href="https://doi.org/10.1038/s44259-024-00049-0" target="_blank" class="text-gold text-xs block mt-1 hover:underline">doi:10.1038/s44259-024-00049-0</a>
+                        </li>
+                        <li class="text-slate-700 text-sm leading-relaxed">
+                            <strong>Chau, V.</strong>, Thi Ngoc, D. T., My, P. T., et al. (2023). Feature Selection Methods for Effective Diagnosis of Rotavirus Infection: A Comparative Evaluation. <em>2023 15th International Conference on Knowledge and Systems Engineering (KSE)</em>, 1–6.
+                            <a href="https://doi.org/10.1109/KSE59128.2023.10299472" target="_blank" class="text-gold text-xs block mt-1 hover:underline">doi:10.1109/KSE59128.2023.10299472</a>
                         </li>
                     </ol>
                 </div>
 
-                <!-- Awards and Grants -->
-                <div class="awards-container reveal">
-                    <h3>Research Funding & Honours</h3>
-                    <ul class="award-list">
-                        <li>
-                            <span class="award-year">2025</span>
-                            <div class="award-content">
-                                <strong>OUCRU Programme Scientific Committee Research Funding ($26,295)</strong>
-                                <span>Principal Investigator: Real-time high-frequency data acquisition from medical devices</span>
+                <!-- Awards -->
+                <div class="reveal">
+                    <h3 class="font-semibold text-oxford text-lg flex items-center gap-2 mb-6 pb-3 border-b border-slate-200">
+                        <i class="fas fa-award text-gold text-base"></i> Research Funding &amp; Honours
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-5">
+                            <div class="text-center shrink-0">
+                                <span class="block font-serif text-gold text-2xl font-semibold">2025</span>
                             </div>
-                        </li>
-                        <li>
-                            <span class="award-year">2021</span>
-                            <div class="award-content">
-                                <strong>OUCRU PE Seed Award ($5,500)</strong>
-                                <span>Principal Investigator: Interactive board game for clinical research</span>
+                            <div>
+                                <p class="font-semibold text-oxford text-sm">OUCRU Programme Scientific Committee Research Funding</p>
+                                <p class="text-slate-500 text-sm">Principal Investigator · Real-time medical device data acquisition</p>
+                                <span class="inline-block mt-2 text-xs font-bold bg-green-50 text-green-700 border border-green-200 px-2.5 py-0.5 rounded">$26,295</span>
                             </div>
-                        </li>
-                        <li>
-                            <span class="award-year">2019</span>
-                            <div class="award-content">
-                                <strong>IoT Startup 2019 - First Place ($70,000)</strong>
-                                <span>Co-Founder: OmniGo Ecosystem</span>
+                        </div>
+                        <div class="flex gap-5">
+                            <div class="text-center shrink-0">
+                                <span class="block font-serif text-gold text-2xl font-semibold">2021</span>
                             </div>
-                        </li>
-                    </ul>
+                            <div>
+                                <p class="font-semibold text-oxford text-sm">OUCRU PE Seed Award</p>
+                                <p class="text-slate-500 text-sm">Principal Investigator · Interactive board game for clinical research education</p>
+                                <span class="inline-block mt-2 text-xs font-bold bg-green-50 text-green-700 border border-green-200 px-2.5 py-0.5 rounded">$5,500</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <div class="text-center shrink-0">
+                                <span class="block font-serif text-gold text-2xl font-semibold">2019</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-oxford text-sm">IoT Startup 2019 – First Place</p>
+                                <p class="text-slate-500 text-sm">Co-Founder · OmniGo Ecosystem · Saigon Hi-tech Park</p>
+                                <span class="inline-block mt-2 text-xs font-bold bg-green-50 text-green-700 border border-green-200 px-2.5 py-0.5 rounded">$70,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <h3 class="font-semibold text-oxford text-lg flex items-center gap-2 mt-10 mb-5 pb-3 border-b border-slate-200">
+                        <i class="fas fa-certificate text-gold text-base"></i> Certifications
+                    </h3>
+                    <div class="space-y-2 text-sm text-slate-600">
+                        <p>🟡 <strong>Google Advanced Data Analytics</strong> &ndash; Coursera, 2024</p>
+                        <p>🟡 <strong>Google Data Analytics</strong> &ndash; Coursera, 2023</p>
+                        <p>🟡 <strong>Epidemiology for Public Health</strong> &ndash; Imperial College London, 2023</p>
+                        <p>🟡 <strong>Medical Statistics</strong> &ndash; Stanford Online, 2021</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <!-- Academic Footer -->
-    <footer class="academic-footer">
-        <div class="container footer-grid">
-            <div>
-                <p><strong>Vinh Chau</strong></p>
-                <p>Clinical Statistician & Data Scientist</p>
-                <p>Oxford University Clinical Research Unit (OUCRU)</p>
-            </div>
-            <div class="footer-contact">
-                <p><strong>Inquiries</strong></p>
-                <a href="mailto:chauvinhtth13@hotmail.com">chauvinhtth13@hotmail.com</a><br>
-                <a href="tel:+84765808290">+84 765 808 290</a>
-            </div>
         </div>
-        <div class="container copyright">
-            <p>&copy; 2026 Vinh Chau. All rights reserved.</p>
+    </section>
+
+    <!-- ========== FOOTER / CONTACT ========== -->
+    <footer id="contact" class="bg-oxford">
+        <div class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-3 gap-12 text-white">
+                <div>
+                    <p class="font-serif text-2xl text-white font-semibold mb-2">Vinh Chau</p>
+                    <p class="text-slate-300 text-sm leading-relaxed">Research Assistant<br>Oxford University Clinical Research Unit<br>Ho Chi Minh City, Vietnam</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-gold uppercase tracking-widest text-xs mb-4">Contact</p>
+                    <div class="space-y-2 text-sm text-slate-300">
+                        <p><i class="fas fa-envelope text-gold w-4 mr-2"></i><a href="mailto:chauvinhtth13@hotmail.com" class="hover:text-white transition-colors">chauvinhtth13@hotmail.com</a></p>
+                        <p><i class="fas fa-phone text-gold w-4 mr-2"></i><a href="tel:+84765808290" class="hover:text-white transition-colors">+84 765 808 290</a></p>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-semibold text-gold uppercase tracking-widest text-xs mb-4">Links</p>
+                    <div class="space-y-2 text-sm text-slate-300">
+                        <p><a href="https://github.com/chauvinhtth13" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-github w-4 mr-2"></i>GitHub</a></p>
+                        <p><a href="https://linkedin.com/in/chauvinhtth13" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-linkedin-in w-4 mr-2"></i>LinkedIn</a></p>
+                        <p><a href="https://orcid.org/0000-0001-6634-7267" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-orcid w-4 mr-2"></i>ORCID</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-6 border-t border-white/10 text-center text-slate-400 text-xs">
+                &copy; 2026 Vinh Chau. All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <!-- Interactive Network Background Script -->
     <script src="script.js"></script>
 </body>
 </html>

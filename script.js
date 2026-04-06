@@ -1,59 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Sticky Navbar
-    const header = document.querySelector('.academic-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // 2. Scroll Reveal Animations
-    function reveal() {
-        const reveals = document.querySelectorAll('.reveal');
-        for (let i = 0; i < reveals.length; i++) {
-            const windowHeight = window.innerHeight;
-            const elementTop = reveals[i].getBoundingClientRect().top;
-            const elementVisible = 100;
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
-            }
-        }
-    }
-    window.addEventListener('scroll', reveal);
-    reveal(); // Trigger once on load
-
-    // 3. Smooth Scrolling for Navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+    const header = document.getElementById('main-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const shrink = scrollY > 50;
+            header.classList.toggle('shadow-md', shrink);
+            header.classList.toggle('py-2', shrink);
+            header.classList.toggle('py-4', !shrink);
         });
-    });
+    }
 
-    // 4. Canvas Network Simulation (Epidemiology / Neural Network)
+    // 2. Mobile Menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+        );
+    }
+
+    // 3. Scroll Reveal
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 4. Canvas Network Simulation
     const canvas = document.getElementById("networkCanvas");
     if (canvas) {
         const ctx = canvas.getContext("2d");
-        
-        let width, height;
-        let particles = [];
-        const connectionDistance = 150;
+        let width, height, particles = [];
+        const connDist = 150, connDistSq = connDist * connDist;
         
         function resize() {
-            width = canvas.clientWidth;
-            height = canvas.clientHeight;
-            canvas.width = width;
-            canvas.height = height;
+            width = canvas.width = canvas.clientWidth;
+            height = canvas.height = canvas.clientHeight;
         }
-        
         window.addEventListener('resize', resize);
         resize();
 
@@ -65,56 +50,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.vy = (Math.random() - 0.5) * 0.5;
                 this.radius = Math.random() * 1.5 + 0.5;
             }
-
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > width) this.vx = -this.vx;
-                if (this.y < 0 || this.y > height) this.vy = -this.vy;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-                ctx.fill();
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
             }
         }
 
         function initParticles() {
             particles = [];
-            let numParticles = (width * height) / 15000; // scaling by area
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle());
-            }
+            let num = Math.min((width * height) / 15000, 150);
+            for (let i = 0; i < num; i++) particles.push(new Particle());
         }
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
 
+            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+            ctx.beginPath();
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
-                particles[i].draw();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.arc(particles[i].x, particles[i].y, particles[i].radius, 0, Math.PI * 2);
+            }
+            ctx.fill();
 
-                for (let j = i; j < particles.length; j++) {
-                    let dx = particles[i].x - particles[j].x;
-                    let dy = particles[i].y - particles[j].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < connectionDistance) {
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < particles.length; i++) {
+                let pi = particles[i];
+                for (let j = i + 1; j < particles.length; j++) {
+                    let pj = particles[j];
+                    let dx = pi.x - pj.x, dy = pi.y - pj.y;
+                    let distSq = dx * dx + dy * dy;
+                    if (distSq < connDistSq) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance/connectionDistance})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - Math.sqrt(distSq)/connDist})`;
+                        ctx.moveTo(pi.x, pi.y);
+                        ctx.lineTo(pj.x, pj.y);
                         ctx.stroke();
                     }
                 }
             }
             requestAnimationFrame(animate);
         }
-
         initParticles();
         animate();
     }
