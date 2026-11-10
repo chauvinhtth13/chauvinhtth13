@@ -42,7 +42,7 @@ Mathematician and computer scientist specializing in clinical data science and A
 <br>
 Edge-computing application capturing high-frequency vital sign data from ICU monitors using Transformer-based CV models.
 
-**[ResSync](https://github.com/chauvinhtth13/ResSync)** — Secure Django platform for centralized research data management with automated pipelines and real-time dashboards.
+**[ResSynt](https://github.com/chauvinhtth13/ResSync)** — Secure Django platform for centralized research data management with automated pipelines and real-time dashboards.
 
 **[AMRalyze](https://github.com/chauvinhtth13/AMRalyze)** — Interactive R/Shiny application for end-to-end AMR data analysis with CLSI/EUCAST guideline interpretation.
 
